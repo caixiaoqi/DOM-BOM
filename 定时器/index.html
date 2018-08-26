@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <h2>日期对象，是系统提供好的</h2>
+  <hr>
+  <h4>var data=new Date()</h4>
+  <h5>data不是实时的，它只记录它生成的那一个时刻的时间</h5>
+  <h5>最重要的是getTime()</h5>
+  <h5>setTime() setDate() setDay()</h5>
+  <h2>时间戳--记录当前时刻</h2>
+  <script>
+    
+    var firstTime=new Date().getTime();
+    for(i=0;i<100000;i++){}
+    var secondTime=new Date().getTime();
+    console.log(secondTime-firstTime)
+
+
+    //闹钟
+    var date=new Date();
+    date.setMinutes(23);
+    setInterval(function(){
+      if((new Date().getTime()-date.getTime())>1000){
+        console.log('OK')
+      }
+    },1000)
+  </script>
+</body>
+</html>

@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+ .content{
+   height: 300px;
+   width: 300px;
+   line-height: 300px;
+   font-size: 50px;
+   text-align: center;
+   border: 1px solid red;
+   display: none;
+ }
+ .active_content{
+   display: block;
+ }
+ button{
+   display: inline-block;
+   height: 40px;
+   width: 60px;
+ }
+ .active_btn{
+   background-color: blue;
+ }
+  </style>
+</head>
+<body>
+  <h1>使用事件代理</h1>
+    <div class="btn-group">
+      <button class="active_btn">111</button>
+      <button>222</button>
+      <button>333</button>
+    </div>  
+  
+      <div class="content active_content">拼多多</div>
+      <div class="content">淘宝</div>
+      <div class="content">天猫</div>
+ 
+
+  <script>
+    //使用事件代理,只在btn-group上注册事件
+    var btn=document.getElementsByTagName('button');
+    var div=document.getElementsByClassName('content');
+    document.getElementsByClassName('btn-group')[0].onclick=function(e){
+      var e=e||window.event;
+      var target=e.target||e.srcElement;
+      if(target!=this){
+        var index=Array.prototype.indexOf.call(btn,target);
+        for(var i=0;i<btn.length;i++){
+          btn[i].classList.remove('active_btn');
+          div[i].classList.remove('active_content');
+        }
+        target.classList.add('active_btn');
+        div[index].classList.add('active_content');
+      }
+    }
+  </script>
+
+
+</body>
+</html>

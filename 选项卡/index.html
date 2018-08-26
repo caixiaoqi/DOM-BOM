@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    div{
+      width: 300px;
+      height: 300px;
+      line-height: 300px;
+      border: 1px solid red;
+      display: none;
+      text-align: center
+    }
+    .active_1{
+      background-color: red;
+    }
+    .active_2{
+      display:block;
+    }
+  </style>
+</head>
+<body>
+  
+      <button class="active_1">111</button>
+      <button>222</button>
+      <button>333</button>
+
+
+      <div class="active_2">拼多多</div>
+      <div class="">淘宝</div>
+      <div class="">天猫</div>
+ 
+
+  <script>
+    var div=document.getElementsByTagName('div');
+    var btn=document.getElementsByTagName('button');
+    for(var i=0;i<btn.length;i++){
+      btn[i].onclick=(function(i){
+        return function(e){
+          for(var j=0;j<btn.length;j++){
+          btn[j].classList.remove('active_1');
+          div[j].classList.remove('active_2')
+          }
+          btn[i].classList.add('active_1');
+          div[i].classList.add('active_2')
+        }
+      }(i))
+    }
+  </script>
+</body>
+</html>
