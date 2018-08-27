@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    var firstTime=0,lastTime=0;
+    var key=true;
+    document.onmousedown=function(e){
+      firstTime=new Date();
+    }
+    document.onmouseup=function(event){
+      var event=event||window.event;
+      lastTime=new Date();
+      if((lastTime-firstTime<300)){
+        key=true;
+      }else{
+        key=false;
+      }
+    }  
+    document.onclick=function(e){
+      if(key){
+        console.log('click')
+      }
+    }
+  </script>
+</body>
+</html>

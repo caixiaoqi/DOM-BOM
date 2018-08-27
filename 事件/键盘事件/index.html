@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+
+  <h4>keydown可以检测到所有的键</h4>
+  <h4>keypress只能检测到产生字符的键,还可以区分字符类的大小写，charCode</h4>
+  <script>
+    document.onkeydown=function(e){
+      console.log(e)
+    }
+    document.onkeypress=function(event){
+      var string=String.fromCharCode(event.charCode)
+      console.log(string)
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <ul>
+    <li>aa</li>
+    <li>bb</li>
+    <li>cc</li>
+    <li>dd</li>
+  </ul>
+  <script>
+    // var ul=document.getElementsByTagName('li');
+    // console.log(ul.length)
+    // for(var i=0,len=ul.length;i<len;i++){
+    //   (function(i){
+    //     ul[i].addEventListener('click',function(){
+    //     console.log(i)
+    //   },false)
+    //   })(i)
+    // }
+    
+    var ul=document.getElementsByTagName('ul')[0];
+    var li=document.getElementsByTagName('li');
+    
+    ul.addEventListener('click',function(event){
+      var event=event||window.event;
+      var target=event.target||event.srcElement;
+      if(this!=target){
+        var index=Array.prototype.indexOf.call(li,target);
+        console.log(index,target.textContent)
+      }
+    },false)
+
+
+  </script>
+</body>
+</html>

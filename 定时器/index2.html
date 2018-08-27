@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <h2>定时器</h2>
+  <h3>不准</h3>
+  <h4>它只是隔着多长时间把相应的函数放到任务队列中，其它它不管了</h4>
+  <h4>它的排列好像是基于红黑树的</h4>
+  <h5>定时器其实是不准的，因为它是异步执行的，任务队列，主线程中的执行完了，它才会再执行</h5>
+  <hr>
+  <h4>你不知道的JS--高性能的JS</h4>
+  <hr>
+  <h4></h4>
+  <script>
+    var i=0;
+    var timer=setInterval(function(){
+      console.log(i++);
+      if(i>180){
+        clearInterval(timer);
+      }
+    },1000)
+  </script>
+</body>
+</html>

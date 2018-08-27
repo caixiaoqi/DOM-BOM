@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    div{
+      width: 100px;
+      height: 100px;
+      background-color: red;
+      position: absolute;
+      left: 0;
+      top: 0;
+    }
+  </style>
+</head>
+<body>
+  <div></div>
+  <script>
+    var div=document.getElementsByTagName('div')[0];
+    var disx,disy;
+    div.onmousedown=function(e){
+      disx=event.pageX-this.style.left;
+      disy=event.pageY-this.style.top;
+      document.onmousemove=function(event){
+        var event=event||window.event;
+        // console.log(event.pageX);
+        div.style.left=event.pageX-disx+'px';
+        div.style.top=event.pageY-disy+'px';
+      }
+    }
+    div.onmouseup=function(e){
+      document.onmousemove=null;
+    }
+  </script>
+</body>
+</html>
